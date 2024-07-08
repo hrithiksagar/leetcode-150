@@ -12,12 +12,24 @@ class Solution:
         
         count = 0
         
+        # for i in range(len(s)):
+        #     # even indices, even value, odd index odd value
+        #     if i%2: # odd
+        #         count += 1 if s[i] == "0" else 0
+        #     else: # even
+        #         count += 1 if s[i] == "1" else 0
         for i in range(len(s)):
             # even indices, even value, odd index odd value
             if i%2: # odd
-                count += 1 if s[i] == "0" else 0
+                if s[i] == "0":
+                    count+=1
+                else:
+                    count+=0
             else: # even
-                count += 1 if s[i] == "1" else 0
+                if s[i] == "1":
+                    count+=1
+                else:
+                    count+=0
         return min(count, len(s)-count)
 
         
