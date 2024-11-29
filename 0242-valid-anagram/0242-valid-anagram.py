@@ -2,20 +2,11 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        return sorted(s) == sorted(t)
-        # else: 
-        #     set1 = set()
-        #     set2 = set()
-        #     for ele in s:
-        #         set1.add(ele)
-            
-        #     for ele in t:
-        #         set2.add(ele)
-        #     print(set1)
-        #     print("\n")
-        #     print(set2)
-        #     if set1 == set2:
-        #         return True
-        #     else:
-        #         return False
+
+        countS, countT = {}, {}
+
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
 
